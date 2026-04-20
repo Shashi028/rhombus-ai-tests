@@ -1,0 +1,5 @@
+First Name,last_name,EMAIL,Phone Number,Age,salary
+John,Doe,john@email.com,555-1234,25.0,50000.0
+Alice,Williams,alice@email.com,555-9999,28.0,60000.0
+Jane,Smith,jane.smith@email.com,,30.0,
+Bob,Jones,,not-a-phone,,75000.0
