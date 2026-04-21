@@ -66,19 +66,13 @@ python data-validation/validate.py
 **Finding 1 – Unnamed upload button**
 The `+` upload button has no accessible name or `data-testid`, forcing testers to use fragile positional selectors like `.nth(2)`. Recommendation: add `aria-label="Upload file"` or `data-testid="upload-button"`.
 
-**Finding 2 – Automation fails when existing projects are present**
-The upload flow breaks when any projects already exist in the dashboard. The app behaves differently when projects exist, blocking the upload interaction. Recommendation: ensure consistent UI behaviour regardless of project count.
-
-**Finding 3 – Onboarding modal appears at unpredictable times**
-The "Start Building" modal appears at different points during the session — sometimes immediately after login, sometimes after file upload. Recommendation: trigger the modal at a consistent, predictable point in the user journey.
-
-**Finding 4 – No `data-testid` on critical UI elements**
+**Finding 2 – No `data-testid` on critical UI elements**
 Key elements like the upload button lack test IDs, making automation unnecessarily brittle. The `Run Pipeline` button was the exception — its `data-testid="run-pipeline"` worked perfectly.
 
-**Finding 5 – Upload endpoint allows unauthenticated access**
+**Finding 3 – Upload endpoint allows unauthenticated access**
 `POST https://api.rhombusai.com/api/dataset/datasets/temp/upload` returns 200 without any Authorization header. Anyone can upload files without an account. This is a security vulnerability — the endpoint should require authentication.
 
-**Finding 6 – AI did not clean invalid phone number**
+**Finding 4 – AI did not clean invalid phone number**
 The input CSV contained `not-a-phone` in the Phone Number column. Despite the prompt instructing the AI to infer column data types and blank invalid values, the AI left this value unchanged. This indicates incomplete prompt adherence for non-email columns.
 
 ## Known Limitations
@@ -88,6 +82,7 @@ The input CSV contained `not-a-phone` in the Phone Number column. Despite the pr
 - Pipeline timeout is set to 2 minutes — may need increasing for larger files.
 - The test uses a hardcoded node test ID `rf__node-llm_node_1` which may change between pipeline runs.
 - `output.csv` is not committed to the repository — it is generated fresh by running the UI test.
+- The UI test requires a clean Rhombus AI dashboard with no existing projects before running.
 
 ## Future Improvements
 
