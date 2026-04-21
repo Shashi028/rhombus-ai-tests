@@ -82,7 +82,6 @@ The input CSV contained `not-a-phone` in the Phone Number column. Despite the pr
 - Pipeline timeout is set to 2 minutes — may need increasing for larger files.
 - The test uses a hardcoded node test ID `rf__node-llm_node_1` which may change between pipeline runs.
 - `output.csv` is not committed to the repository — it is generated fresh by running the UI test.
-- The UI test requires a clean Rhombus AI dashboard with no existing projects before running.
 
 ## Future Improvements
 
