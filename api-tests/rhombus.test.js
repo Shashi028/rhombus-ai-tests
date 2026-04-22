@@ -14,7 +14,7 @@ beforeAll(async () => {
     const page = await context.newPage();
     await page.goto('https://rhombusai.com/'); //Navigating to the website 
     await page.getByRole('button', { name: 'Close' }).click(); //close the pop-up
-    await page.getByRole('button', { name: 'Log In' }).click(); //click login button
+    await page.getByRole('button', { name: 'Log In' }).click();
     await page.getByRole('textbox', { name: 'Email address' }).fill(process.env.TEST_EMAIL);
     await page.getByRole('textbox', { name: 'Password' }).fill(process.env.TEST_PASSWORD);//enter email and password
     await page.getByRole('button', { name: 'Log In' }).click();//click login submit
