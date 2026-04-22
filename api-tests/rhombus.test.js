@@ -69,7 +69,6 @@ test('negative test: file not uploaded without authentication',async() => {
     form.append('description', '');
     form.append('column_header_row', '1');
     const response = await axios.post('https://api.rhombusai.com/api/dataset/datasets/temp/upload',form);
-    expect(response.status).toBe(200); 
+    expect(response.status).toBe(200); //Should have been 401: Unauthenticated
     // This endpoint returns 200 without authentication.
-    //Bug: Upload should require authentication and return 401, but it returns 200. This is a security issue that needs to be fixed.
 });

@@ -37,7 +37,7 @@ pip install pandas
 
 ## Environment Variables
 
-Create a `.env` file in the root of the repository:
+Create a `.env` file in the root of the repository or enter your email and password at line 10,11 of ui-tests/login.spec.js file:
 TEST_EMAIL=your@email.com
 TEST_PASSWORD=yourpassword
 
@@ -58,8 +58,6 @@ npm test
 ```bash
 python data-validation/validate.py
 ```
-
-> Note: Run the UI test first — it generates `output.csv` which the validation script needs.
 
 ## QA Findings
 
@@ -83,11 +81,6 @@ The input CSV contained `not-a-phone` in the Phone Number column. Despite the pr
 - The test uses a hardcoded node test ID `rf__node-llm_node_1` which may change between pipeline runs.
 - `output.csv` is not committed to the repository — it is generated fresh by running the UI test.
 
-## Future Improvements
-
-- Add phone number validation to the data validation script — flag values containing no digits.
-- Improve prompt engineering to ensure the AI correctly blanks invalid phone numbers.
-- Replace positional selector `nth(2)` with a stable selector once Rhombus adds a proper label to the upload button.
-- Add pipeline execution status API test once a stable endpoint is identified.
-
 ## Demo Video
+[Watch the video walkthrough here]
+(https://www.loom.com/share/61d444296d964d6aabecf19b0b116e83)

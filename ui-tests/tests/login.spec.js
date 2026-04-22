@@ -28,6 +28,6 @@ test('should successfully login when validated', async ({ page }) => {
     const downloadPromise = page.waitForEvent('download');
     await page.getByRole('button', { name: 'Download' }).click();
     await page.getByRole('menuitem', { name: 'Download as CSV' }).click();
-    const download = await downloadPromise;
-    await download.saveAs(path.join(__dirname,'../../data-validation/output.csv')); //download the file
+    const download = await downloadPromise; //capture the download
+    await download.saveAs(path.join(__dirname,'../../data-validation/output.csv')); //save the file
 });
