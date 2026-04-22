@@ -25,7 +25,7 @@ test('should successfully login when validated', async ({ page }) => {
     await page.getByTestId('rf__node-llm_node_1').click();
     await page.locator('.text-card-foreground.shadow-sm.relative.flex.flex-col.items-center.justify-center.gap-0\\.5.h-28.w-28.rounded-lg.p-3.cursor-grab.border-2.bg-card.transition-all.duration-200.active\\:cursor-grabbing.group-hover\\:scale-105.group-hover\\:shadow-xl.border-transform-clean > .absolute.left-1 > .inline-flex').click();
     await expect(page.locator('table.caption-bottom')).toBeVisible();
-    const downloadPromise = page.waitForEvent('download');
+    const downloadPromise = page.waitForEvent('download'); // wait to capture the download
     await page.getByRole('button', { name: 'Download' }).click();
     await page.getByRole('menuitem', { name: 'Download as CSV' }).click();
     const download = await downloadPromise; //capture the download
